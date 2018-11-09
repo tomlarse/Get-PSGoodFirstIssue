@@ -29,8 +29,7 @@ else {
 # Publish to AppVeyor if we're in AppVeyor
 if (
     $env:BHProjectName -and $ENV:BHProjectName.Count -eq 1 -and
-    $env:BHBuildSystem -eq 'AppVeyor' -and
-    $PSVersionTable.PSVersion.Major -eq 5
+    $env:BHBuildSystem -eq 'AppVeyor'
 ) {
     Deploy DeveloperBuild {
         By AppVeyorModule {
