@@ -18,9 +18,6 @@ if (
         }
     }
 }
-elseif ($PSVersionTable.PSVersion.Major -eq 5) {
-    #do nothing
-}
 else {
     "Skipping deployment: To deploy, ensure that...`n" +
     "`t* You are in a known build system (Current: $ENV:BHBuildSystem)`n" +
