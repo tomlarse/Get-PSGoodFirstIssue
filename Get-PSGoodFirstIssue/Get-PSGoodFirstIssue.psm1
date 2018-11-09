@@ -1,12 +1,14 @@
 function Get-PSGoodFirstIssue {
     [CmdletBinding()]
     param (
-        $OauthToken
+        $OauthToken,
+        $Repo = "powershell/powershell",
+        $Labels = "up-for-grabs"
     )
 
     process {
         $irmbody = @{
-            labels = "up-for-grabs"
+            labels = $Labels
             state = "open"
         }
         if ($OauthToken) {
@@ -15,7 +17,7 @@ function Get-PSGoodFirstIssue {
             }
         }
 
-        Invoke-RestMethod https://api.github.com/repos/powershell/powershell/issues -Body $param -Headers $irmheader -FollowRelLink | ForEach-Object {$_} | Get-Random
+        Invoke-RestMethod "https://api.github.com/repos/$Repo/issues" -Body $irmbody -Headers $irmheader -FollowRelLink | ForEach-Object {$_} | Get-Random
     }
 }
 
