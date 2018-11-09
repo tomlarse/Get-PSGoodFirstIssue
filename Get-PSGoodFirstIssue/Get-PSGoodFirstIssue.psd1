@@ -10,7 +10,7 @@
     CompanyName       = 'Unknown'
     Copyright         = '(c) Tom-Inge Larsen. All rights reserved.'
     Description       = 'Gets a random issue from gihub.com/PowerShell/PowerShell that is tagged with Up-for-Grabs'
-    FunctionsToExport = @(*)
+    FunctionsToExport =  '*'
     CmdletsToExport   = @()
     VariablesToExport = @()
     AliasesToExport   = @()
