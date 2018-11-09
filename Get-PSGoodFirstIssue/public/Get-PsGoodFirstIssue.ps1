@@ -9,7 +9,7 @@ function Get-PSGoodFirstIssue {
             labels = "up-for-grabs"
             state = "open"
         }
-        if {
+        if ($OauthToken) {
             $irmheader = @{
                 Authorization = "token $OauthToken"
             }
