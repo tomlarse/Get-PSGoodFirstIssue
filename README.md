@@ -3,6 +3,8 @@
 
 # Get-PSGoodFirstIssue
 
+![Get-PsGoodFirstIssue](docs/media/result.png)
+
 ## SYNOPSIS
 Gets a random issue from github.com/Powershell/Powershell labeled `Up-for-grabs`
 
@@ -37,6 +39,13 @@ PS C:\> Get-PSGoodFirstIssue -Repo "Powershell/vscode-powershell" -Labels "Issue
 ```
 
 Gets a random issue labeled `Issue-bug` from the powershell/vscode-powershell repo.
+
+### Example 3
+```powershell
+PS C:\> $iss = Get-PSGoodFirstIssue
+PS C:\> $iss | Select-Object -Property *
+```
+Will list all available properties, not just the pretty synopsis.
 
 ## PARAMETERS
 
