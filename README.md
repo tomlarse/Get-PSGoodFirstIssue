@@ -8,9 +8,14 @@
 ## SYNOPSIS
 Gets a random issue from github.com/Powershell/Powershell labeled `Up-for-grabs`
 
+## INSTALLATION
+```powershell
+Install-Module Get-PSGoodFirstIssue -Scope CurrentUser
+```
+
 ## SYNTAX
 
-```
+```powershell
 Get-PSGoodFirstIssue [[-OauthToken] <Object>] [[-Repo] <Object>] [[-Labels] <Object>] [<CommonParameters>]
 ```
 
