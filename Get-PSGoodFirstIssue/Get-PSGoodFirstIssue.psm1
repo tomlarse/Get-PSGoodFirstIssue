@@ -4,7 +4,9 @@ Update-TypeData -TypeName PSGFI.GithubIssue -MemberType ScriptProperty -MemberNa
 Update-TypeData -TypeName PSGFI.GithubIssue -MemberType ScriptProperty -MemberName Status -Value {$this.state -replace '.*',"`e[92m`$0`e[39m"} -Force
 Update-TypeData -TypeName PSGFI.GithubIssue -MemberType ScriptProperty -MemberName Link -Value {$this.html_url -replace '.*',"`e[96m`$0`e[39m"} -Force
 Update-TypeData -TypeName PSGFI.GithubIssue -MemberType ScriptProperty -MemberName "Assigned to" -Value {
-    if ($this.Assignee) {
+    if ($this.Assignee.login) {
+        $this.Assignee.login -replace '.*',"`e[92m`$0`e[39m"
+    } elseif ($this.Assignee) {
         $this.Assignee -replace '.*',"`e[92m`$0`e[39m"
     } else {
         "Unassigned" -replace '.*',"`e[92m`$0`e[39m"
@@ -33,6 +35,37 @@ function Get-PSGoodFirstIssue {
 
         $issue = Invoke-RestMethod "https://api.github.com/repos/$Repo/issues" -Body $irmbody -Headers $irmheader -FollowRelLink | ForEach-Object {$_} | Get-Random
 
+        $issue.pstypenames.insert(0,"PSGFI.GithubIssue")
+
+        $issue
+    }
+}
+
+function Get-PSHacktoberFestIssue {
+    [CmdletBinding()]
+    param (
+        $OauthToken,
+        $Language = 'powershell',
+        $Label = 'hacktoberfest',
+        $State = 'open'
+
+    )
+
+    process {
+        $irmbody = @{
+            labels = $Label
+            state = $state
+        }
+        if ($OauthToken) {
+            $irmheader = @{
+                Authorization = "token $OauthToken"
+            }
+        }
+
+        $uri = "https://api.github.com/search/issues?q=language:{0}+label:{1}+state:{2}" -f $Language, $Label, $State
+
+        $result = Invoke-RestMethod $uri -Body $irmbody -Headers $irmheader -FollowRelLink
+        $issue = $result.items | Get-Random
         $issue.pstypenames.insert(0,"PSGFI.GithubIssue")
 
         $issue
