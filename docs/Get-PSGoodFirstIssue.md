@@ -1,6 +1,6 @@
 ---
-external help file:
-Module Name:
+external help file: Get-PSGoodFirstIssue-help.xml
+Module Name: Get-PSGoodFirstIssue
 online version:
 schema: 2.0.0
 ---
@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-PSGoodFirstIssue
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Gets a random issue from github.com/Powershell/Powershell labeled `Up-for-grabs`
 
 ## SYNTAX
 
@@ -17,21 +17,47 @@ Get-PSGoodFirstIssue [[-OauthToken] <Object>] [[-Repo] <Object>] [[-Labels] <Obj
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Gets a random issue from github.com/Powershell/Powershell labeled `Up-for-grabs`
 
 ## EXAMPLES
 
 ### Example 1
+
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Get-PSGoodFirstIssue
 ```
 
-{{ Add example description here }}
+Gets a random issue labeled `up-for-grabs` from the powershell/powershell repo.
+
+### Example 2
+
+```powershell
+PS C:\> Get-PSGoodFirstIssue -Repo "Powershell/vscode-powershell"
+```
+
+Gets a random issue labeled `up-for-grabs` from the powershell/vscode-powershell repo.
+
+### Example 3
+
+```powershell
+PS C:\> Get-PSGoodFirstIssue -Repo "Powershell/vscode-powershell" -Labels "Issue-bug"
+```
+
+Gets a random issue labeled `Issue-bug` from the powershell/vscode-powershell repo.
+
+### Example 4
+
+```powershell
+PS C:\> $iss = Get-PSGoodFirstIssue
+PS C:\> $iss | Select-Object -Property *
+```
+
+Will list all available properties, not just the pretty synopsis.
 
 ## PARAMETERS
 
 ### -Labels
-{{Fill Labels Description}}
+Label to get a random issue from. Per the github api spec it should be possible with a comma separated list, but it does not currently work.
 
 ```yaml
 Type: Object
@@ -40,13 +66,13 @@ Aliases:
 
 Required: False
 Position: 2
-Default value: None
+Default value: up-for-grabs
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -OauthToken
-{{Fill OauthToken Description}}
+After 60 calls to the API in an hour, github will block you. Use an oAuth token from [https://github.com/settings/tokens](https://github.com/settings/tokens) to authenticate in that case
 
 ```yaml
 Type: Object
@@ -61,7 +87,7 @@ Accept wildcard characters: False
 ```
 
 ### -Repo
-{{Fill Repo Description}}
+The repo to search in. Use `owner/repo` format.
 
 ```yaml
 Type: Object
@@ -70,7 +96,7 @@ Aliases:
 
 Required: False
 Position: 1
-Default value: None
+Default value: powershell/powershell
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

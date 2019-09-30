@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-PSHacktoberFestIssue
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Gets a random issue from with language `powershell` labeled `Hacktoberfest`.
 
 ## SYNTAX
 
@@ -18,21 +18,28 @@ Get-PSHacktoberFestIssue [[-OauthToken] <Object>] [[-Language] <Object>] [[-Labe
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Gets a random issue from with language `powershell` labeled `Hacktoberfest`.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Get-PSHacktoberFestIssue
 ```
 
-{{ Add example description here }}
+Gets a random issue with the label `hacktoberfest` and language powershell.
+
+### Example 2
+
+```powershell
+PS C:\> Get-PSHacktoberFestIssue -OauthToken $token
+```
+Uses a given token to authenticate user.
 
 ## PARAMETERS
 
 ### -Label
-{{Fill Label Description}}
+Label to get a random issue from. Per the github api spec it should be possible with a comma separated list, but it does not currently work.
 
 ```yaml
 Type: Object
@@ -41,13 +48,13 @@ Aliases:
 
 Required: False
 Position: 2
-Default value: None
+Default value: hactoberfest
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -Language
-{{Fill Language Description}}
+Limit searches to a given language
 
 ```yaml
 Type: Object
@@ -56,13 +63,13 @@ Aliases:
 
 Required: False
 Position: 1
-Default value: None
+Default value: powershell
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -OauthToken
-{{Fill OauthToken Description}}
+The Search API has a custom rate limit. For requests using Basic Authentication, OAuth, or client ID and secret, you can make up to 30 requests per minute. For unauthenticated requests, the rate limit allows you to make up to 10 requests per minute.
 
 ```yaml
 Type: Object
@@ -77,7 +84,7 @@ Accept wildcard characters: False
 ```
 
 ### -State
-{{Fill State Description}}
+Can be used to return issues that are closed. Defaults to open.
 
 ```yaml
 Type: Object
@@ -86,7 +93,7 @@ Aliases:
 
 Required: False
 Position: 3
-Default value: None
+Default value: Open
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
