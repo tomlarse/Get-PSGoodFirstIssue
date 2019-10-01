@@ -17,4 +17,5 @@ build: false
 
 #Kick off the CI/CD pipeline
 test_script:
+  - powershell: . .\build.ps1 -Task 'Test'
   - pwsh: . .\build.ps1

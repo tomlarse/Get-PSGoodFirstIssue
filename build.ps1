@@ -1,3 +1,7 @@
+param (
+    $Task = 'Default'
+)
+
 function Resolve-Module {
     [Cmdletbinding()]
     param
@@ -45,5 +49,5 @@ Resolve-Module "Psake", "PSDeploy", "Pester", "BuildHelpers"
 
 Set-BuildEnvironment
 
-Invoke-psake .\psake.ps1
+Invoke-psake .\psake.ps1 -TaskList $Task
 exit ( [int]( -not $psake.build_success ) )
