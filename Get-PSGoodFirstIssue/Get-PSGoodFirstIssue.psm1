@@ -47,24 +47,22 @@ function Get-PSHacktoberFestIssue {
         $OauthToken,
         $Language = 'powershell',
         $Label = 'hacktoberfest',
+        [Parameter()]
+        [ValidateSet('open', 'closed')]
         $State = 'open'
 
     )
 
     process {
-        $irmbody = @{
-            labels = $Label
-            state = $state
-        }
         if ($OauthToken) {
             $irmheader = @{
                 Authorization = "token $OauthToken"
             }
         }
 
-        $uri = "https://api.github.com/search/issues?q=language:{0}+label:{1}+state:{2}" -f $Language, $Label, $State
+        $uri = "https://api.github.com/search/issues?q=language:{0}+label:{1}+state:{2}&per_page=100" -f $Language, $Label, $State
 
-        $result = Invoke-RestMethod $uri -Body $irmbody -Headers $irmheader -FollowRelLink
+        $result = Invoke-RestMethod $uri -Headers $irmheader -FollowRelLink
         $issue = $result.items | Get-Random
         $issue.pstypenames.insert(0,"PSGFI.GithubIssue")
 

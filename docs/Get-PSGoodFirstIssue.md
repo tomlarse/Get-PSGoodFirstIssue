@@ -22,7 +22,6 @@ Gets a random issue from github.com/Powershell/Powershell labeled `Up-for-grabs`
 ## EXAMPLES
 
 ### Example 1
-
 ```powershell
 PS C:\> Get-PSGoodFirstIssue
 ```
@@ -30,7 +29,6 @@ PS C:\> Get-PSGoodFirstIssue
 Gets a random issue labeled `up-for-grabs` from the powershell/powershell repo.
 
 ### Example 2
-
 ```powershell
 PS C:\> Get-PSGoodFirstIssue -Repo "Powershell/vscode-powershell"
 ```
@@ -38,7 +36,6 @@ PS C:\> Get-PSGoodFirstIssue -Repo "Powershell/vscode-powershell"
 Gets a random issue labeled `up-for-grabs` from the powershell/vscode-powershell repo.
 
 ### Example 3
-
 ```powershell
 PS C:\> Get-PSGoodFirstIssue -Repo "Powershell/vscode-powershell" -Labels "Issue-bug"
 ```
@@ -46,7 +43,6 @@ PS C:\> Get-PSGoodFirstIssue -Repo "Powershell/vscode-powershell" -Labels "Issue
 Gets a random issue labeled `Issue-bug` from the powershell/vscode-powershell repo.
 
 ### Example 4
-
 ```powershell
 PS C:\> $iss = Get-PSGoodFirstIssue
 PS C:\> $iss | Select-Object -Property *
@@ -73,6 +69,7 @@ Accept wildcard characters: False
 
 ### -OauthToken
 After 60 calls to the API in an hour, github will block you. Use an oAuth token from [https://github.com/settings/tokens](https://github.com/settings/tokens) to authenticate in that case
+
 
 ```yaml
 Type: Object

@@ -8,7 +8,8 @@ schema: 2.0.0
 # Get-PSHacktoberFestIssue
 
 ## SYNOPSIS
-Gets a random issue from with language `powershell` labeled `Hacktoberfest`.
+Gets a random issue from any repo with the language PowerShell and the label `Hacktoberfest`
+
 
 ## SYNTAX
 
@@ -18,7 +19,8 @@ Get-PSHacktoberFestIssue [[-OauthToken] <Object>] [[-Language] <Object>] [[-Labe
 ```
 
 ## DESCRIPTION
-Gets a random issue from with language `powershell` labeled `Hacktoberfest`.
+Gets a random issue from any repo with the language PowerShell and the label `Hacktoberfest`
+
 
 ## EXAMPLES
 
@@ -27,19 +29,20 @@ Gets a random issue from with language `powershell` labeled `Hacktoberfest`.
 PS C:\> Get-PSHacktoberFestIssue
 ```
 
-Gets a random issue with the label `hacktoberfest` and language powershell.
+Gets a random issue from any repo with the language PowerShell and the label `Hacktoberfest`
 
 ### Example 2
-
 ```powershell
 PS C:\> Get-PSHacktoberFestIssue -OauthToken $token
 ```
-Uses a given token to authenticate user.
+
+Gets a random issue from any repo with the language PowerShell and the label `Hacktoberfest` using oAuth authentication.
 
 ## PARAMETERS
 
 ### -Label
-Label to get a random issue from. Per the github api spec it should be possible with a comma separated list, but it does not currently work.
+Label to get a random issue from. Default value set to `hacktoberfest` but can be overridden. Rate Limiting may take effect on more popular languages.
+
 
 ```yaml
 Type: Object
@@ -54,7 +57,8 @@ Accept wildcard characters: False
 ```
 
 ### -Language
-Limit searches to a given language
+Programming language to search for. Default value is `PowerShell` but can be overridden. Rate Limiting may take effect on more popular languages.
+
 
 ```yaml
 Type: Object
@@ -84,7 +88,7 @@ Accept wildcard characters: False
 ```
 
 ### -State
-Can be used to return issues that are closed. Defaults to open.
+The state of the issues. Valid values are Open or Closed
 
 ```yaml
 Type: Object
