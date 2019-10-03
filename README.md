@@ -5,7 +5,7 @@
 
 ![Get-PsGoodFirstIssue](docs/media/result.png)
 
-![Get-PsHacktoberFestIssue](docs/media/get-pshacktoberfestissue.png)
+![Get-PsHacktoberFestIssue](docs/media/Get-PsHacktoberFestIssue.png)
 
 
 ## INSTALLATION
