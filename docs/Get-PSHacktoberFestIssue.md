@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-PSHacktoberFestIssue
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Gets a random issue from any repo with the language PowerShell and the label `Hacktoberfest`
 
 ## SYNTAX
 
@@ -18,21 +18,35 @@ Get-PSHacktoberFestIssue [[-OauthToken] <Object>] [[-Language] <Object>] [[-Labe
 ```
 
 ## DESCRIPTION
-{{Fill in the Description}}
+Gets a random issue from any repo with the language PowerShell and the label `Hacktoberfest`
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Get-PSHacktoberFestIssue
 ```
 
-{{ Add example description here }}
+Gets a random issue from any repo with the language PowerShell and the label `Hacktoberfest`
+
+### Example 2
+```powershell
+PS C:\> Get-PSHacktoberFestIssue -OauthToken $token
+```
+
+Gets a random issue from any repo with the language PowerShell and the label `Hacktoberfest` using oAuth authentication.
+
+### Example 3
+```powershell
+PS C:\> $iss = Get-PSHacktoberFestIssue
+PS C:\> $iss | Select-Object -Property *
+```
+Will list all available properties, not just the pretty synopsis.
 
 ## PARAMETERS
 
 ### -Label
-{{Fill Label Description}}
+Label to get a random issue from. Default value set to `hacktoberfest` but can be overridden. Rate Limiting may take effect on more popular languages.
 
 ```yaml
 Type: Object
@@ -47,7 +61,7 @@ Accept wildcard characters: False
 ```
 
 ### -Language
-{{Fill Language Description}}
+Programming language to search for. Default value is `PowerShell` but can be overridden. Rate Limiting may take effect on more popular languages.
 
 ```yaml
 Type: Object
@@ -62,7 +76,7 @@ Accept wildcard characters: False
 ```
 
 ### -OauthToken
-{{Fill OauthToken Description}}
+The Search API has a custom rate limit. For requests using Basic Authentication, OAuth, or client ID and secret, you can make up to 30 requests per minute. For unauthenticated requests, the rate limit allows you to make up to 10 requests per minute.
 
 ```yaml
 Type: Object
@@ -77,7 +91,7 @@ Accept wildcard characters: False
 ```
 
 ### -State
-{{Fill State Description}}
+The state of the issues. Valid values are Open or Closed
 
 ```yaml
 Type: Object
