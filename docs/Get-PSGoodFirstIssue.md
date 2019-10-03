@@ -1,6 +1,6 @@
 ---
-external help file:
-Module Name:
+external help file: Get-PSGoodFirstIssue-help.xml
+Module Name: Get-PSGoodFirstIssue
 online version:
 schema: 2.0.0
 ---
@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-PSGoodFirstIssue
 
 ## SYNOPSIS
-{{Fill in the Synopsis}}
+Gets a random issue from github.com/Powershell/Powershell labeled `Up-for-grabs`
 
 ## SYNTAX
 
@@ -26,7 +26,7 @@ Gets a random issue from github.com/Powershell/Powershell labeled `Up-for-grabs`
 PS C:\> Get-PSGoodFirstIssue
 ```
 
-{Gets a random issue labeled `up-for-grabs` from the powershell/powershell repo.
+Gets a random issue labeled `up-for-grabs` from the powershell/powershell repo.
 
 ### Example 2
 ```powershell
@@ -47,6 +47,7 @@ Gets a random issue labeled `Issue-bug` from the powershell/vscode-powershell re
 PS C:\> $iss = Get-PSGoodFirstIssue
 PS C:\> $iss | Select-Object -Property *
 ```
+
 Will list all available properties, not just the pretty synopsis.
 
 ## PARAMETERS
@@ -61,13 +62,13 @@ Aliases:
 
 Required: False
 Position: 2
-Default value: None
+Default value: up-for-grabs
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -OauthToken
-After 60 calls to the API in an hour, github will block you. Use an oAuth token from (https://github.com/settings/tokens) to authenticate in that case
+After 60 calls to the API in an hour, github will block you. Use an oAuth token from [https://github.com/settings/tokens](https://github.com/settings/tokens) to authenticate in that case
 
 
 ```yaml
@@ -92,7 +93,7 @@ Aliases:
 
 Required: False
 Position: 1
-Default value: None
+Default value: powershell/powershell
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

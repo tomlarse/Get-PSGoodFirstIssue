@@ -10,6 +10,7 @@ schema: 2.0.0
 ## SYNOPSIS
 Gets a random issue from any repo with the language PowerShell and the label `Hacktoberfest`
 
+
 ## SYNTAX
 
 ```
@@ -19,6 +20,7 @@ Get-PSHacktoberFestIssue [[-OauthToken] <Object>] [[-Language] <Object>] [[-Labe
 
 ## DESCRIPTION
 Gets a random issue from any repo with the language PowerShell and the label `Hacktoberfest`
+
 
 ## EXAMPLES
 
@@ -36,17 +38,11 @@ PS C:\> Get-PSHacktoberFestIssue -OauthToken $token
 
 Gets a random issue from any repo with the language PowerShell and the label `Hacktoberfest` using oAuth authentication.
 
-### Example 3
-```powershell
-PS C:\> $iss = Get-PSHacktoberFestIssue
-PS C:\> $iss | Select-Object -Property *
-```
-Will list all available properties, not just the pretty synopsis.
-
 ## PARAMETERS
 
 ### -Label
 Label to get a random issue from. Default value set to `hacktoberfest` but can be overridden. Rate Limiting may take effect on more popular languages.
+
 
 ```yaml
 Type: Object
@@ -55,13 +51,14 @@ Aliases:
 
 Required: False
 Position: 2
-Default value: None
+Default value: hactoberfest
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
 ### -Language
 Programming language to search for. Default value is `PowerShell` but can be overridden. Rate Limiting may take effect on more popular languages.
+
 
 ```yaml
 Type: Object
@@ -70,7 +67,7 @@ Aliases:
 
 Required: False
 Position: 1
-Default value: None
+Default value: powershell
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
@@ -100,7 +97,7 @@ Aliases:
 
 Required: False
 Position: 3
-Default value: None
+Default value: Open
 Accept pipeline input: False
 Accept wildcard characters: False
 ```

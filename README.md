@@ -52,6 +52,8 @@ Gets a random issue labeled `up-for-grabs` from the powershell/vscode-powershell
 PS C:\> Get-PSGoodFirstIssue -Repo "Powershell/vscode-powershell" -Labels "Issue-bug"
 ```
 
+Gets a random issue labeled `Issue-bug` from the powershell/vscode-powershell repo.
+
 ## Get-PSHacktoberFestIssue
 
 Gets a random issue from any repo with the language PowerShell and the label `Hacktoberfest`
@@ -72,8 +74,6 @@ Get-PSHacktoberFestIssue
 ```powershell
 PS C:\> Get-PSHacktoberFestIssue
 ```
-
-Gets a random issue from any repo with the language PowerShell and the label `Hacktoberfest`
 
 ### Example 2
 ```powershell
